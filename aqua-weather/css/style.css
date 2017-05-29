@@ -1,0 +1,46 @@
+body {
+	background-color: #ccc;
+	font-family: arial;
+}
+
+.weather-wrapper {
+	display: inline-block;
+	text-align: center;
+}
+.weather-wrapper img {
+	width: 40px;
+}
+.weather-wrapper .forecast,
+.weather-wrapper .forecast-now {
+	display: inline-block;
+	margin: auto 10px;
+	vertical-align: top;
+}
+
+.weather-wrapper .forecast-day {
+	font-size: 12px;
+}
+
+.weather-wrapper .forecast-temp {
+	color: white;
+}
+
+
+.weather-wrapper .forecast-now img {
+	width: 67px;
+}
+
+.weather-wrapper .forecast-now .forecast-icon,
+.weather-wrapper .forecast-now .forecast-temp {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.weather-wrapper .forecast-now .forecast-temp {
+	font-size: 30px;
+}
+
+.weather-wrapper .forecast-now {
+	border-right: 1px solid #fff;
+	padding-right: 20px;
+}
