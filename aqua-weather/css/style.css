@@ -1,11 +1,10 @@
-body {
-	background-color: #ccc;
-	font-family: arial;
-}
 
 .weather-wrapper {
 	display: inline-block;
 	text-align: center;
+
+	color: #fff;
+	letter-spacing: 2px;
 }
 .weather-wrapper img {
 	width: 40px;
