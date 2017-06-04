@@ -25,12 +25,21 @@ jQuery( document ).ready( function() {
 	}
 
 	// bind events
-	jQuery('input.zalety-opis-media-button').on('click', openMediaUploader);
+	jQuery('input.aqua-zalety-media-button').on('click', openMediaUploader);
 	jQuery('input.aqua-zalety-delete-button').on('click', deleteImage);
 
 	// restore event bindings after widget update
 	jQuery(document).on('widget-updated', function() {
 		jQuery('input.aqua-zalety-media-button').on('click', openMediaUploader);
+		jQuery('input.aqua-zalety-delete-button').on('click', deleteImage);
+	});
+
+	// set event binding on widget add
+	jQuery(document).on('widget-added', function(event, widget) {
+		if (widget[0].id.includes('aqua_zalety_widget')) { // <----------- name of my widget here as declared in widget constructor class
+			jQuery('input.aqua-zalety-media-button').on('click', openMediaUploader);
+			jQuery('input.aqua-zalety-delete-button').on('click', deleteImage);
+		}
 	});
 
 	frame.on('select', function() {

@@ -29,6 +29,16 @@ jQuery( document ).ready( function() {
 	// restore event bindings after widget update
 	jQuery(document).on('widget-updated', function() {
 		jQuery('input.aqua-galeria-media-button').on('click', openMediaUploader);
+		jQuery('input.aqua-galeria-remove-button').on('click', deleteImage);
+	});
+
+	// set event binding on widget add
+	jQuery(document).on('widget-added', function(event, widget) {
+
+		if (widget[0].id.includes('aqua_galeria_widget')) { // <----------- name of my widget here as declared in widget constructor class
+			jQuery('input.aqua-galeria-media-button').on('click', openMediaUploader);
+			jQuery('input.aqua-galeria-remove-button').on('click', deleteImage);
+		}
 	});
 
 	frame.on('select', function() {

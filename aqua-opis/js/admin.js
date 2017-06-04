@@ -35,6 +35,16 @@ jQuery( document ).ready( function() {
 	// restore event bindings after widget update
 	jQuery(document).on('widget-updated', function() {
 		jQuery('input.aqua-opis-media-button').on('click', openMediaUploader);
+		jQuery('input.aqua-opis-delete-button').on('click', deleteImage);
+	});
+	
+	// set event binding on widget add
+	jQuery(document).on('widget-added', function(event, widget) {
+
+		if (widget[0].id.includes('aqua_opis_widget')) { // <----------- name of my widget here as declared in widget constructor class
+			jQuery('input.aqua-opis-media-button').on('click', openMediaUploader);
+		jQuery('input.aqua-opis-delete-button').on('click', deleteImage);
+		}
 	});
 
 	frame.on('select', function() {
