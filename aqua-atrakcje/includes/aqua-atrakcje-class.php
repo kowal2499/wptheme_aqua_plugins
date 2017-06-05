@@ -103,21 +103,21 @@
 
 
 
-		<div class="item" >
+<!-- 		<div class="item" >
 			<div class="row">
 
 			<div class="col-md-4">
-				<img src="<?php echo $img_src; ?>" alt="" class="img-responsive animate fadeIn">
+				<img src="<?php #echo $img_src; ?>" alt="" class="img-responsive animate fadeIn">
 			</div>
 			<div class="col-md-8">
 				<div class="description">
-					<h3><?php echo $title; ?></h3>
-					<?php echo $desc; ?>
+					<h3><?php # echo $title; ?></h3>
+					<?php # echo $desc; ?>
 				</div>
 			</div>
 
 			</div>
-		</div>
+		</div> -->
 
 		<?php
 	}

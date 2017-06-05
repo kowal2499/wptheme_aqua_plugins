@@ -133,7 +133,7 @@
 			<div class="img-wrapper align-to-left animate fadeIn"><img src="<?= $img_src; ?>" alt="" class="img-responsive"></div><?php } ?>
 			<div class="horiz-center-wrapper">
 					<div class="horiz-center">
-							<p class="animate toLeft"><img src="<?= plugins_url() . '/aqua-opis/img/aqua-wave.png'; ?>" alt="" class="wave"><?= $desc; ?></p>
+							<p class="animate toLeft"><img src="<?= plugins_url() . '/aqua-opis/img/aqua-wave.png'; ?>" alt="" class="wave"><?= pll__($desc); ?></p>
 					</div>
 			</div>
 		</div>
@@ -145,7 +145,7 @@
 			<div class="img-wrapper align-to-right animate fadeIn"><img src="<?= $img_src; ?>" alt="" class=""></div><?php } ?>
 			<div class="horiz-center-wrapper">
 					<div class="horiz-center">
-							<p class="animate toRight"><img src="<?= plugins_url() . '/aqua-opis/img/aqua-wave.png'; ?>" alt="" class="wave"><?= $desc; ?></p>
+							<p class="animate toRight"><img src="<?= plugins_url() . '/aqua-opis/img/aqua-wave.png'; ?>" alt="" class="wave"><?= pll__($desc); ?></p>
 					</div>
 			</div>
 		</div>
