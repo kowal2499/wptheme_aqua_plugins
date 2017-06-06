@@ -65,7 +65,7 @@
 			
             <div class="col-md-3 col-sm-6 col-xs-12">
                 <div class="bullet"><img src="<?= plugins_url().'/aqua-dla-dzieci/img/tick.png'; ?>"></div>
-                <div class="desc"><?= $title; ?></div>
+                <div class="desc"><?= pll__($title); ?></div>
             </div>
 
 
