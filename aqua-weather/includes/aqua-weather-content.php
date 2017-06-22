@@ -54,19 +54,19 @@ function aw_content() {
 	
 	<div class="weather-wrapper">
 		<div class="forecast-now">
-			<div class="forecast-day">POGODA TERAZ</div>
+			<div class="forecast-day"><?= pll__("POGODA TERAZ"); ?></div>
 			<div class="forecast-icon"><img src="<?= plugins_url() . '/aqua-weather/ikony/' . $forecast1["icon"]. '.png'; ?>"></div>
 			<div class="forecast-temp"><?= ceil($forecast1["temperature"]); ?> &deg;C</div>
 		</div>
 		
 		<div class="forecast">
-			<div class="forecast-day">JUTRO</div>
+			<div class="forecast-day"><?= pll__("JUTRO"); ?></div>
 			<div class="forecast-icon"><img src="<?= plugins_url() . '/aqua-weather/ikony/' . $forecast2["icon"]. '.png'; ?>"></div>
 			<div class="forecast-temp"><?= ceil($forecast2["temperature"]); ?> &deg;C</div>
 		</div>
 
 		<div class="forecast">
-			<div class="forecast-day">POJUTRZE</div>
+			<div class="forecast-day"><?= pll__("POJUTRZE"); ?></div>
 			<div class="forecast-icon"><img src="<?= plugins_url() . '/aqua-weather/ikony/' . $forecast3["icon"]. '.png'; ?>"></div>
 			<div class="forecast-temp"><?= ceil($forecast3["temperature"]); ?> &deg;C</div>
 		</div>
