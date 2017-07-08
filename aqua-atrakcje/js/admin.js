@@ -7,6 +7,7 @@ jQuery( document ).ready( function() {
 	});
 
 	var destinatedID;
+	var alt;
 	var has_image;
 
 	var openMediaUploader = function(event) {
@@ -45,5 +46,7 @@ jQuery( document ).ready( function() {
 		var	attachment = frame.state().get('selection').first().toJSON();
 		jQuery("#" + destinatedID).val(attachment.url);
 		jQuery("#img-" + destinatedID).attr("src", attachment.url);
+		jQuery("#alt-" + destinatedID).val(attachment.alt)
+		// jQuery("#img-" + destinatedID).attr("alt", attachment.alt);
 	});
 })

@@ -34,7 +34,8 @@
 		$instance = array(
 			'uploaded_image' => (!empty($new_instance['uploaded_image'])) ? strip_tags($new_instance['uploaded_image']) : '',
 			'title' => (!empty($new_instance['title'])) ? strip_tags($new_instance['title']) : '',
-			'description' => (!empty($new_instance['description'])) ? $new_instance['description'] : ''
+			'description' => (!empty($new_instance['description'])) ? $new_instance['description'] : '',
+			'img_alt' => (!empty($new_instance['img_alt'])) ? $new_instance['img_alt'] : ''
 			);
 		return $instance;
 	}
@@ -58,6 +59,14 @@
 		} else {
 			$title = '';
 		}
+
+		if (isset($instance['img_alt'])) {
+			$img_alt = $instance['img_alt'];
+		} else {
+			$img_alt = '';
+		}
+
+
 		?>
 		<div class="wrap">
 
@@ -85,6 +94,8 @@
 
 			<!-- URL OBRAZKA (HIDDEN) -->
 			<input type="hidden" class="widefat" id="<?= $this->get_field_id('uploaded_image'); ?>" name="<?= $this->get_field_name('uploaded_image'); ?>" value="<?= $uploaded_image; ?>">
+
+			<input type="hidden" class="widefat" id="alt-<?= $this->get_field_id('uploaded_image'); ?>" name="<?= $this->get_field_name('img_alt'); ?>" value="<?= $img_alt; ?>">
 
 			<img src="<?= $uploaded_image; ?>" width="100%" alt="no image" id="img-<?= $this->get_field_id('uploaded_image'); ?>">
 

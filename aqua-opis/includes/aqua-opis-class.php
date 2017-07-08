@@ -18,9 +18,10 @@
 		$desc = ($instance['description']);
 		$direction = esc_attr($instance['position']);
 		$has_image = esc_attr($instance['has_image']);
+		$img_alt = esc_attr($instance['img_alt']);
 
 		echo $args['before_widget'];
-		$this->getFrontend($img_src, $desc, $direction, $has_image);
+		$this->getFrontend($img_src, $desc, $direction, $has_image, $img_alt);
 		echo $args['after_widget'];
 	
 	}
@@ -37,7 +38,9 @@
 			'uploaded_image' 			=> (!empty($new_instance['uploaded_image'])) ? strip_tags($new_instance['uploaded_image']) : plugins_url().'/aqua-opis/img/no-image.jpg',
 			'description'					=> (!empty($new_instance['description'])) ? ($new_instance['description']) : '',
 			'position'						=> (!empty($new_instance['position'])) ? $new_instance['position'] : 'left',
-			'has_image'						=> (!empty($new_instance['has_image'])) ? $new_instance['has_image'] : 0);
+			'has_image'						=> (!empty($new_instance['has_image'])) ? $new_instance['has_image'] : 0,
+			'img_alt'						=> (!empty($new_instance['img_alt'])) ? $new_instance['img_alt'] : ''
+			);
 		return $instance;
 	}
 
@@ -67,6 +70,12 @@
 		} else {
 			$has_image = 0;
 		}
+
+		if (isset($instance['img_alt'])) {
+			$img_alt = $instance['img_alt'];
+		} else {
+			$img_alt = 0;
+		}
 ?>
 
 	<div class="wrap">
@@ -87,10 +96,12 @@
 		<br class="clear"><br>
 
 		<!-- URL OBRAZKA (HIDDEN) -->
-		<input type="hidden" id="<?= $this->get_field_id('uploaded_image'); ?>" name="<?= $this->get_field_name('uploaded_image'); ?>" value="<?= $uploaded_image; ?>">
+		<input type="hidden" id="<?= $this->get_field_id('uploaded_image'); ?>" name="<?= $this->get_field_name('uploaded_image'); ?>" value="<?= $uploaded_image; ?>">	
+			
 
 		<!-- HAS IMAGE (HIDDEN) -->
 		<input type="hidden" id="<?= $this->get_field_id('has_image'); ?>" name="<?= $this->get_field_name('has_image'); ?>" value="<?= $has_image; ?>">
+		<input type="hidden" id="alt-<?= $this->get_field_id('uploaded_image'); ?>" name="<?= $this->get_field_name('img_alt'); ?>" value="<?= $img_alt; ?>">
 
 		<!-- TEXTAREA TREŚĆ -->
 		<p>
@@ -124,16 +135,16 @@
 <?php
 	}
 
-	function getFrontend($img_src, $desc, $direction, $has_image) {
+	function getFrontend($img_src, $desc, $direction, $has_image, $img_alt) {
 		?>
 
 		<?php if ($direction=='left'): ?>
 		<div class="value">
 			<?php if ($has_image) { ?>
-			<div class="img-wrapper align-to-left"><img src="<?= $img_src; ?>" alt="" class="img-responsive"></div><?php } ?>
+			<div class="img-wrapper align-to-left"><img src="<?= $img_src; ?>" alt="<?= $img_alt; ?>" class="img-responsive"></div><?php } ?>
 			<div class="horiz-center-wrapper">
 					<div class="horiz-center">
-							<p><img src="<?= plugins_url() . '/aqua-opis/img/aqua-wave.png'; ?>" alt="" class="wave"><?= pll__($desc); ?></p>
+							<p><img src="<?= plugins_url() . '/aqua-opis/img/aqua-wave.png'; ?>" class="wave"><?= pll__($desc); ?></p>
 					</div>
 			</div>
 		</div>
@@ -142,7 +153,7 @@
 		
 		<div class="value">
 		<?php if ($has_image) { ?>
-			<div class="img-wrapper align-to-right"><img src="<?= $img_src; ?>" alt="" class=""></div><?php } ?>
+			<div class="img-wrapper align-to-right"><img src="<?= $img_src; ?>" alt="<?= $img_alt; ?>" class=""></div><?php } ?>
 			<div class="horiz-center-wrapper">
 					<div class="horiz-center">
 							<p><img src="<?= plugins_url() . '/aqua-opis/img/aqua-wave.png'; ?>" alt="" class="wave"><?= pll__($desc); ?></p>

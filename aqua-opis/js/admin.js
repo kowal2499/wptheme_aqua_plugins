@@ -51,6 +51,7 @@ jQuery( document ).ready( function() {
 		var	attachment = frame.state().get('selection').first().toJSON();
 		jQuery("#" + destinatedID).val(attachment.url);
 		jQuery("#img-" + destinatedID).attr("src", attachment.url);
+		jQuery("#alt-" + destinatedID).val(attachment.alt);
 
 		jQuery("#"+has_image).val(1);
 	});
